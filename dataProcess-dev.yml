@@ -20,7 +20,7 @@ spring:
       removeAbandonedTimeout: 1800
       logAbandoned: true
   rabbitmq:
-    host: 192.168.2.2
+    host: 127.0.0.1
     port: 5672
     username: admin
     password: 123
