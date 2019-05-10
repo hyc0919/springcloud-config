@@ -2,7 +2,7 @@ server:
   port: 8750
 spring:
   rabbitmq:
-    host: 192.168.2.2
+    host: 127.0.0.1
     port: 5672
     username: admin
     password: 123
@@ -19,7 +19,30 @@ spring:
           initial-interval: 5000
           max-interval: 5000
           multiplier: 5
-weixin_notify_url: http://245t2920v7.wicp.vip/weixin_callback/notifyWeiXinPay
-alipay_notify_url: http://245t2920v7.wicp.vip/alipay_callback/notifyAliPay
-jlpay_notify_url: http://245t2920v7.wicp.vip/japay_callback/notifyJlPay
-name: "test2"
+weixin_notify_url: http://x24349349y.zicp.vip/callback/weixin_callback/notifyWeiXinPay
+alipay_notify_url: http://x24349349y.zicp.vip/callback/alipay_callback/notifyAliPay
+chinaums_notify_url: http://245t2920v7.wicp.vip/callback/chinaums_callback/notifyChinaumsPay
+weixin_noInductive_notify_url: http://245t2920v7.wicp.vip/callback/weixin_NoInductive_callback/notifyWeiXinNoInductivePay
+weixin_jsapi_notify_url: http://245t2920v7.wicp.vip/callback/weixin_jsapi_callback/notifyWeiXinJSAPIPay
+chinaums_jsapi_notify_url: http://245t2920v7.wicp.vip/callback/chinaums_jsapi_callback/notifyChinaumsJsapiPay
+### Hystrix 超时 配置
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 10000
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+ribbon:
+  ReadTimeOut: 10000
+  ConnectTimeout: 10000
