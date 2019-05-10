@@ -1,0 +1,41 @@
+server:
+  port: 8751
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://rm-wz9tm998634cc7o46vo.mysql.rds.aliyuncs.com:3306/park10.0?useUnicode=true&characterEncoding=utf8
+    username: root_mysql
+    password: SzAllwin123
+  rabbitmq:
+    host: 192.168.2.2
+    port: 5672
+    username: admin
+    password: 123
+    virtual-host: /
+    publisher-confirms: true
+    publisher-returns: true
+    listener:
+      simple:
+        prefetch: 1
+        acknowledge-mode: manual 
+### Hystrix 超时 配置
+feign:
+  hystrix:
+    enabled: true
+  client:
+    config:
+      default:
+        connectTimeout: 10000
+        readTimeout: 10000
+hystrix:
+  command:
+    default:
+      execution:
+        timeout:
+          enabled: true
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+ribbon:
+  ReadTimeOut: 10000
+  ConnectTimeout: 10000
