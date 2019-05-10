@@ -1,0 +1,30 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://rm-wz9tm998634cc7o46vo.mysql.rds.aliyuncs.com:3306/park10.0?useUnicode=true&characterEncoding=utf8
+    username: root_mysql
+    password: SzAllwin123
+  rabbitmq:
+    host: 192.168.2.2
+    port: 5672
+    username: admin
+    password: 123
+    virtual-host: /
+    publisher-confirms: true
+    publisher-returns: true
+    listener:
+      simple:
+        prefetch: 1
+        acknowledge-mode: manual 
+server:
+  tomcat:
+    uri-encoding: UTF-8
+    max-threads: 1000
+    min-spare-threads: 30
+  port: 8701
+name: "111111"
+ribbon:
+  ReadTimeout: 50000
+  ConnectTimeout: 50000
+  MaxAutoRetries: 0
+  MaxAutoRetriesNextServer: 1
